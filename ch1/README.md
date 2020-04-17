@@ -18,10 +18,10 @@ development, then RStudio is recommended.
 To install R on Linux, enter the command `sudo apt-get install R.base`, and
 enter your root password.
 
-![install R][../images/installr.png]
+![install R]( ../images/installr.png )
 
 After entering 'Y' to install, all of the packages required for R will be
 installed along with R:
 
-![R installed][../images/rinstalled.png]
+![R installed]( ../images/rinstalled.png )
 
