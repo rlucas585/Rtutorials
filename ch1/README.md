@@ -32,7 +32,7 @@ of R.
 R can be run by itself, and upon opening you'll see a screen similar to
 this:
 
-[R intro screen](../images/rintro.png)
+![R intro screen](../images/rintro.png)
 
 This is the R console, where we can enter R commands that will be interpreted
 to give us output.
@@ -168,3 +168,33 @@ We can do this with the `typeof` function.
 ##### Introducing Data structures
 
 Many **data structures** exist within R, they form the backbone of R.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Link for RStudio: https://rstudio.com/products/rstudio/download/
+Links:
+https://www.datamentor.io/r-programming/vector/
+https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/
+https://www.dummies.com/programming/r/how-to-do-basic-arithmetic-in-r/
+https://www.google.com/search?client=ubuntu&channel=fs&q=what+is+a+vector+in+r&ie=utf-8&oe=utf-8k
