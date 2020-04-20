@@ -1,4 +1,4 @@
-# Ch2: Working environment
+# Chapter 2: Vectors, and RStudio
 
 ### Introducing Data structures: Vectors
 
@@ -30,7 +30,7 @@ Usage:	vector(mode = "logical", length = 0)
 
 So `vector()` can take up to two arguments, specifying `mode` and `length`. The
 `mode` defines the **type** of variables our vector will store, and `length`
-defines how long our variable is. With no arguments, `vector()` will default to
+defines how long our vector is. With no arguments, `vector()` will default to
 a logical vector of length 0, as we can see by entering the function into our
 console:
 
@@ -89,8 +89,17 @@ our simple variables:
 > data types (such as an integer, or a character type), the most basic data type
 > in R is actually a vector, and the variables we declared in chapter 1 were all
 > vectors with a length of 1. This is why our output is always preceded by
-> a '[1]', to show that the value in our variable is the first element in a
-> vector of length 1.
+> a '[1]', the '1' is there to inform us that this line of the vector begins
+> with the 1st element of the vector. To demonstrate this, try creating and
+> reading the following vector:
+> ```
+> > vectorX <- vector(mode = "character", 50)
+> > vectorX
+> [1] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" 
+> [26] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+> ```
+> In the above vector, the [26] informs us that the first element in this line
+> of output was the 26th element of the vector.
 
 ### Direct construction of vectors
 
@@ -129,25 +138,25 @@ within:
 ```
 
 > To make a vector using integers instead of doubles, we could either append an
-> 'L' to the end of every single value, or use the `as.numeric()` function on
+> 'L' to the end of every single value, or use the `as.integer()` function on
 > the entire vector.
 > ```
-> > vector5 <- as.numeric(c(1, 2, 3, 4, 5, 6))
+> > vector5 <- as.integer(c(1, 2, 3, 4, 5, 6))
 > > typeof(vector5)
 > [1] "integer"
 > ```
 
 ### Examining Vectors
 
-As well as `typeof()`, `length()`, `class()` and `str()` can give you
-useful information about vectors and other R objects.
+Other functions that can give you useful information about vectors and other
+R objects are length()`, `class()` and `str()`.
 
 * `length()` - returns length of an object.
 * `class()` - While `typeof()` returns information about an objects most
 primitive type, classes are more complex types that we can construct ourselves,
 and we will study these in more detail in a later chapter.
-* `str()` - returns information about the structure of an object. While it
-seems a little reduntant for our vectors - this will be very useful when we move
+* `str()` - returns information about the **structure** of an object. While it
+seems a little redundant for our vectors - this will be very useful when we move
 onto more complex data structures.
 
 Try the functions out on some of your variables in the R console, to
@@ -217,4 +226,11 @@ times later in this tutorial.
 ### Writing and executing our first R script
 
 At the end of the previous chapter, we concluded that R could function
-excellently as a very-powerful calculator. 
+excellently as a very powerful calculator. However it would obviously be
+extremely annoying to have to enter the values of variables we want to use
+everytime we want to perform an analysis - and ridiculous when using large
+sets of data.
+
+An **R Script**, put simply, is a series of commands that we can write, and
+instead of having to enter the commands one at a time into the Console R will
+execute everything in our script itself.

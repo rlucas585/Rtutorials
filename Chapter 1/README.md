@@ -1,4 +1,4 @@
-# R basics
+# Chapter 1: R basics
 
 Some definitions before beginning:
 
@@ -43,21 +43,81 @@ to give us output.
 A few basic commands to try out could be:
 
 * `getwd()` - Returns the current working directory (the directory/folder that
-the R console is currently working from).
+  the R console is currently working from). A working directory is the current
+  folder in your filesystem where R can read files from, and where it will save
+  files to.
+* `dir()` - Shows the directories present in the current working directory.
 * `setwd(dir)` - `setwd(dir)` takes what is known as an **argument**, in this
 case `dir`. An argument is data that we pass to a function/command that it will
 use in some way. `dir` in this case is the directory that we want to set as our
-new working directory.
+new working directory. 
+* `dir.create(name)` - Create a new directory named `name` in the current
+  working directory.
+
+To familiarise ourself with these commands, let's make a new directory to use
+for this tutorial series, and move into it.
+
+First, let's check where we are:
+
+```
+> getwd()
+[1] "/home/rlucas"
+```
+
+Your output will obviously show your current directory rather than 'rlucas'.
+Next, run `dir()`, and you should see all folders within your current working
+directory.
+
+```
+> dir()
+[1] "A Directory" "Another Directory"
+```
+
+Now, we're going to create a new directory with `dir.create(name)`. This is the
+first time we will be using a function with an **argument**: when functions
+take arguments, they expect a certain **type** of argument (such as a number, or
+a word, variable types will be covered later). For `dir.create(name)`, 'name'
+should be a **character** type, which means when we supply our argument, it
+should be enclosed within double-quotes **"**:
+
+```
+> dir.create("OurNewDirectory")
+```
+
+There won't be any output from this command, but if we run `dir()`, we should
+see our new directory.
+
+Now, to move into the directory, all we have to do is run `setwd(dir)`, using
+the same name as the directory we just created:
+
+```
+> setwd("OurNewDirectory")
+```
+
+Again, there won't be any output, but if we check our location with `getwd()`,
+we'll find ourselves in our new directory.
+
+To move backwards in a file system, use:
+
+```
+setwd("..")
+```
+
+### Arguments and Default values
 
 In R, many functions have multiple arguments, which often have **default
 values**. If an argument has a default value, then you can omit these arguments
 when calling the function, and the default value will be used in its place.
+With `setwd(dir)` and `dir.create(dir)`, we had to supply an argument, but
+functions we use later on will allow us to ignore one or more of its arguments.
 
-* `help(topic)` - `help()` is an example of a function with several default
-values. Try `help(setwd)` to retrieve information about the `getwd` and `setwd`
-commands (press up and down arrow keys to navigate, and press `q` to exit the
-help screen). Then, try `help(help)` to see all the default values for `help`'s
-arguments.
+If you come across a command that you would like more information on, you can
+use the `help()` function to get its manual page.
+
+* LINUX - `help()` will return a page that you can scroll up and down in with
+the arrow keys.
+* WINDOWS - `help()` will open a page in a web browser that can be scrolled
+through with the mouse.
 
 If you ever are struggling to make a function work the way you expect it to,
 it is always worth checking it's help page with `help(topic)`.
@@ -74,9 +134,10 @@ begin with, try entering a few simple calculations:
 * `3 + 3` - (addition) will output 6.
 * `3 - 2` - (subtraction) will output 1.
 * `3 / 2` - (division) will output 1.5.
-* `7 %/% 3` - (integer divide) will output 2.
 * `3 * 3` - (multiplication) will output 9.
 * `2 ^ 4` - (raise to power of) will output 16. (`2 ** 4` is equivalent)
+* `7 %/% 3` - (integer divide) will output 2. (Note the '/' between the
+percentage symbols!)
 * `7 %% 3` - (modulo) will output 1. (modulo is the remainder following
   division)
 
@@ -142,7 +203,7 @@ up next to each other. Many languages treat characters and strings as different
 data types, but in R they are treated as a single type.
 * numeric - Also known as *double*, numbers that may have decimal place values
 e.g. 2.5, 15.35 etc.
-* integer - Whole numbers e.g. 2, 5, etc. When declared, must be done with
+* integer - Whole numbers e.g. 2, 5, etc. When declared, must be done
 suffixed by an **L** to specify that it is an integer value (var <- 2L).
 * logical: TRUE and FALSE
 * complex: 2 + 3i; complex numbers with real and imaginary parts.
@@ -184,12 +245,12 @@ For example, if you divide two integer types e.g. `20L / 6L`, the result will be
 With all the information above, you should be able to:
 
 * Install, and run the R console.
-* Run basic functions, understand how to pass arguments to a function, and the
-meaning of a *default value* for an argument.
+* Run basic functions, understand how to pass arguments to a function, and know
+  the meaning of a *default value* for an argument.
 * Perform basic math operations in the console.
 * Declare variables, and perform operations on the variables.
 * Understand the typing of variables, and how they can be affected by
-operations.
+  operations.
 
 With all of this, R can function effectively as a calculator, but not do much
 more than that. In the next chapter, we'll cover the most basic
