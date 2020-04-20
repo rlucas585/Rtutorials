@@ -1,4 +1,4 @@
-# Working environment
+# R basics
 
 Some definitions before beginning:
 
@@ -11,23 +11,26 @@ associated tools a programmer might need while developing software (e.g. a
 text editor, a compiler to construct a program from code, etc.).
 
 If you have little to no programming experience, or if you prefer an IDE for
-development, then RStudio is recommended.
+development, then RStudio is recommended. For this first chapter however, we
+will go over the basics of R alone, before beginning with RStudio in the
+second chapter.
 
-### R installation
+## R installation
 
 **Linux**: To install R on Linux, enter the command
-`sudo apt-get install R.base`, and enter your root password.
+`sudo apt-get install R.base` in terminal, and enter your root password.
 
-Alternatively, you can go to the [R website](https://www.r-project.org/),
+Alternatively for Linux, or for Windows, you can go to the
+[R website](https://www.r-project.org/),
 click download at the top left, and select your OS.
 
 On Linux, you can now run R from the command line with `R`.
 On Windows you can search for R from the windows search bar to open an instance
 of R.
 
-### Running the R console
+## Running the R console
 
-##### First commands
+### First commands
 
 R can be run by itself, and upon opening you'll see a screen similar to
 this:
@@ -52,13 +55,18 @@ when calling the function, and the default value will be used in its place.
 
 * `help(topic)` - `help()` is an example of a function with several default
 values. Try `help(setwd)` to retrieve information about the `getwd` and `setwd`
-commands (press `q` to exit the help screen). Then, try `help(help)` to see
-all the default values for `help`'s arguments.
+commands (press up and down arrow keys to navigate, and press `q` to exit the
+help screen). Then, try `help(help)` to see all the default values for `help`'s
+arguments.
 
 If you ever are struggling to make a function work the way you expect it to,
 it is always worth checking it's help page with `help(topic)`.
 
-##### Basic calculations
+Arguments and default values of functions will be covered repeatedly in the
+following chapters as new functions are introduced, so there should be numerous
+examples to help understand the meaning of arguments and default values.
+
+### Basic calculations
 
 While using the R console, we can perform numerous mathematical functions. To
 begin with, try entering a few simple calculations:
@@ -66,17 +74,17 @@ begin with, try entering a few simple calculations:
 * `3 + 3` - (addition) will output 6.
 * `3 - 2` - (subtraction) will output 1.
 * `3 / 2` - (division) will output 1.5.
+* `7 %/% 3` - (integer divide) will output 2.
 * `3 * 3` - (multiplication) will output 9.
 * `2 ^ 4` - (raise to power of) will output 16. (`2 ** 4` is equivalent)
 * `7 %% 3` - (modulo) will output 1. (modulo is the remainder following
   division)
-* `7 %/% 3` - (integer divide) will output 2.
 
 These operators are capable of acting in the same manner as a basic calculator,
 but they are much more powerful when applied to *vectors*, as we shall see
 later.
 
-##### Introducing variables
+### Introducing variables
 
 **Variables** are an essential part of most programming languages. A variable
 simply **stores a value** under a convenient name.
@@ -123,7 +131,7 @@ To remove all variables in our environment, `rm(list=ls())` is a single command
 that combines two functions and a variable assignment to clear our entire
 environment.
 
-##### Variable types
+### Variable types
 
 Most programming languages feature different types of variable, and R is no
 different. These types are:
@@ -165,36 +173,25 @@ We can do this with the `typeof` function.
 [1] "character"
 ```
 
-##### Introducing Data structures
-
-Many **data structures** exist within R, they form the backbone of R.
-
-
-
+Keep in mind that performing operations on variables may result in type changes.
+For example, if you divide two integer types e.g. `20L / 6L`, the result will be
+`3.3333`, with `typeof()` returning `double`. The integer division operator
+`%/%` must be used to return a value of `3`, and a type value of `integer`.
 
 
+### Ch1 Conclusion
 
+With all the information above, you should be able to:
 
+* Install, and run the R console.
+* Run basic functions, understand how to pass arguments to a function, and the
+meaning of a *default value* for an argument.
+* Perform basic math operations in the console.
+* Declare variables, and perform operations on the variables.
+* Understand the typing of variables, and how they can be affected by
+operations.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Link for RStudio: https://rstudio.com/products/rstudio/download/
-Links:
-https://www.datamentor.io/r-programming/vector/
-https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/
-https://www.dummies.com/programming/r/how-to-do-basic-arithmetic-in-r/
-https://www.google.com/search?client=ubuntu&channel=fs&q=what+is+a+vector+in+r&ie=utf-8&oe=utf-8k
+With all of this, R can function effectively as a calculator, but not do much
+more than that. In the next chapter, we'll cover the most basic
+data structure of R: the vector; install RStudio and begin to prepare for more
+complex calculations.
