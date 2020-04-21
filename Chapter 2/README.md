@@ -302,7 +302,7 @@ in length, return the midpoint between the two middle values.
 > function to do this in a later section.
 
 To get the median rating for season 1, we can simply call the `median()`
-function on our vector:
+function on our vector, so we add to our script:
 
 ```
 got_season1_median <- median(got_season1)
@@ -320,13 +320,17 @@ got_season1_range <- diff(range(got_season1))
 print(got_season1_range)
 ```
 
-Now, if we `source()` our script, we should see the following output:
+Once the above lines have been added to our script, we can `source()` our
+script again:
 
 ```
 [1] 9.1
 [1] 9.1
 [1] 0.9
 ```
+
+With the first output corresponding to the mean, the second the median, and
+the final value representing the range.
 
 ### Chapter 2 Conclusion
 
