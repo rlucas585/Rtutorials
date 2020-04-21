@@ -53,6 +53,9 @@ And if we specify `mode` and `length`:
 [1] "" "" "" "" ""
 ```
 
+Each pair of double-quotes represents an empty string, containing 0
+characters.
+
 > A small note on supply arguments to functions. If we would like to make our
 > function calls even more explicit, we *can* name our arguments as we supply
 > them using an '=' sign.
@@ -149,7 +152,7 @@ within:
 ### Examining Vectors
 
 Other functions that can give you useful information about vectors and other
-R objects are length()`, `class()` and `str()`.
+R objects are `length()`, `class()` and `str()`.
 
 * `length()` - returns length of an object.
 * `class()` - While `typeof()` returns information about an objects most
@@ -233,4 +236,138 @@ sets of data.
 
 An **R Script**, put simply, is a series of commands that we can write, and
 instead of having to enter the commands one at a time into the Console R will
-execute everything in our script itself.
+execute everything in our script itself. It also makes it very easy to share
+analyses with others, by simply sending a script anybody can see every step of
+your analysis.
+
+To create an R script from RStudio, we can open a new script from the 'File'
+tab on the toolbar at the top left, or click the button beneath it. When this
+is done, the top left of the screen will open a text editor - this is where
+we can write our scripts.
+
+Good practice to start an R script is to include a title at the top using
+**comments** - comments are text within the script that is entirely ignored by
+the R console when the script is run, and serve to describe your code. We
+write a comment using a `#`.
+
+```
+# BasicStats.R
+```
+
+Our first script is going to be extremely simple: we're going to declare a
+vector `got_season1`, which contains the IMDB ratings of each episode of
+Game of Thrones. Then, we're going to declare a new variable: `got_season1_mean`
+, calculated by using the `mean()` function on our previous vector. Finally,
+we will print our results to the screen with the `print()` function.
+
+```
+got_season1 <- c(9.1, 8.8, 8.7, 8.8, 9.1, 9.2, 9.2, 9, 9.6, 9.5)
+got_season1_mean <- mean(got_season1)
+print(got_season1_mean)
+```
+
+RStudio runs it's code in a slightly odd way, the default 'Run' button
+above the script will run only the current line of code. To run the entirety
+of the script, we use **Source**. This will send a command to the R Console:
+
+```
+source('~/path/to/your/directory/BasicStats.R', echo=TRUE)
+```
+
+> We can see this command in the 'History' tab of RStudio
+
+Once run, we should see from the RStudio console at the bottom left, that all
+of our lines were entered into the console one by one. Our variables will be
+present in the environment, as we can see on the top right corner - and our
+result will be printed on the screen: `[1] 9.1`.
+
+> The reason why we are seeing every line of the script is because the argument
+> `echo` is set to `TRUE` in the `source()` command used by RStudio by default.
+> If you run the same command with `echo=FALSE`, or without the `echo` argument
+> supplied at all (as it defaults to FALSE), then you will see only the output
+> of the program - the result of our `print()` statement. You can run with echo
+> OFF by clicking the small arrow on the 'Source' button.
+
+Now, let's add a couple more basic functions:
+
+* range(vector) - return a vector of length two, with the minimum and maximum
+values from the vector.
+* diff(vector) - returns a vector containing the differences between every
+pair of elements in the argument vector.
+* median(vector) - find the middle most value. If the argument vector is even
+in length, return the midpoint between the two middle values.
+
+> There is no default function to determine **mode** of a vector - the value
+> that occurs the most times in a vector. We will instead create our own
+> function to do this in a later section.
+
+To get the median rating for season 1, we can simply call the `median()`
+function on our vector:
+
+```
+got_season1_median <- median(got_season1)
+print(got_season1_median)
+```
+
+To determine the exact number for **range**, we must run two functions on our
+data: `range()` first to get the min and max values, then `diff()` on this
+result to get the difference between them. This can be done in a single line
+by using the first function **as an argument** for the second function, as seen
+below:
+
+```
+got_season1_range <- diff(range(got_season1))
+print(got_season1_range)
+```
+
+Now, if we `source()` our script, we should see the following output:
+
+```
+[1] 9.1
+[1] 9.1
+[1] 0.9
+```
+
+### Chapter 2 Conclusion
+
+Using the information from this chapter, you should:
+
+* Understand how to create simple vectors.
+* Know the difference between vector types.
+* Know basic functions for examining a vector in the console.
+* Be familiar with the layout of RStudio.
+* Know how to write and execute an R script.
+
+Understanding vectors is crucial to understanding R. In later chapters
+we will begin to construct more complex data structures - matrices, lists, and
+data frames - but they all have their roots in vectors. In the next chapter
+however, we are going to create our first graphical output from R - plotting
+basic graphs.
+
+### Chapter 2 Exercise
+
+To test whether you've retained everything covered so far, try to calculate
+the mean, median and range of the IMDB ratings of seasons 7 and 8 of Game of
+Thrones (perform the analysis on each group separately).
+
+1. Season_7 <- c(8.6, 8.9, 9.2, 9.8, 8.8, 9, 9.4)
+2. Season_8 <- c(7.6, 7.9, 7.5, 5.5, 6.0, 4.1)
+
+<details>
+	<summary>Click for answers</summary>
+
+	1. Season 7
+		```
+		[1] 9.1 (MEAN)
+		[1] 9 (MEDIAN)
+		[1] 1.2 (RANGE)
+		```
+	2. Season 8
+		```
+		[1] 6.433333 (MEAN)
+		[1] 6.75 (MEDIAN)
+		[1] 3.8 (RANGE)
+		```
+</details>
+
+Code for this chapter can be found in 'BasicStats.R'.

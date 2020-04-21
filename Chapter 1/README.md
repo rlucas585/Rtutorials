@@ -240,7 +240,7 @@ For example, if you divide two integer types e.g. `20L / 6L`, the result will be
 `%/%` must be used to return a value of `3`, and a type value of `integer`.
 
 
-### Ch1 Conclusion
+### Chapter 1 Conclusion
 
 With all the information above, you should be able to:
 
